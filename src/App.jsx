@@ -1,7 +1,10 @@
 import { useEffect, useState } from 'react'
 import './App.css'
 
-const cvPath = '/cv/Mubala Mawere CV.pdf'
+const assetPath = (path) =>
+  `${import.meta.env.BASE_URL}${path.replace(/^\/+/, '')}`
+
+const cvPath = assetPath('cv/Mubala Mawere CV.pdf')
 const contactEmail = 'maweremubala2@gmail.com' 
 
 const projects = [
@@ -12,7 +15,7 @@ const projects = [
     description:
       'A prototype exploring how solar energy can help assistive devices operate without frequent charging. It combines battery storage with obstacle detection, alerts, and an emergency feature.',
     shortName: 'ENERGY FOR INDEPENDENCE',
-    image: '/images/walking-stick.png',
+    image: assetPath('images/walking-stick.png'),
     imageAlt: 'Solar-powered smart walking stick prototype',
     detailLink: '#project/walking-stick',
   },
@@ -23,7 +26,7 @@ const projects = [
     description:
       'An individually built, two-conveyor prototype that spaces parcels, reads colour-coded quality control labels, and routes red, green, and blue parcels with servo diverters.',
     shortName: 'SORTING IN MOTION',
-    image: '/images/conveyor.jpg',
+    image: assetPath('images/conveyor.jpg'),
     imageAlt: 'Colour-coded parcel sorting conveyor prototype',
     detailLink: '#project/conveyor',
   },
@@ -34,18 +37,18 @@ const projects = [
     description:
       'An individual web project demonstrating how the Chinese Wall security model restricts competing banks from accessing each other’s student records and logs blocked attempts.',
     shortName: 'ACCESS WITH BOUNDARIES',
-    image: '/images/chinese-wall.png',
+    image: assetPath('images/chinese-wall.png'),
     imageAlt: 'Screenshot of the Chinese Wall loan system',
     detailLink: '#project/chinese-wall',
   },
 ]
 
 const certificates = [
-  { title: 'ICTAZ-Leadership', image: '/certificates/certificate-1.jpeg' },
-  { title: 'TME Education', image: '/certificates/certificate-2.jpeg' },
-  { title: 'YouthTeamUp', image: '/certificates/certificate-3.png' },
-  { title: 'FNB Academy', image: '/certificates/certificate-4.png' },
-  { title: '4th-DVE YouthTeamUp', image: '/certificates/certificate-5.png' },
+  { title: 'ICTAZ-Leadership', image: assetPath('certificates/certificate-1.jpeg') },
+  { title: 'TME Education', image: assetPath('certificates/certificate-2.jpeg') },
+  { title: 'YouthTeamUp', image: assetPath('certificates/certificate-3.png') },
+  { title: 'FNB Academy', image: assetPath('certificates/certificate-4.png') },
+  { title: '4th-DVE YouthTeamUp',image: assetPath('certificates/certificate-5.png')  },
 ]
 
 function Header({ detail = false }) {
@@ -257,7 +260,7 @@ function Home() {
             </h2>
             <img
               className="profile-image"
-              src="/images/profile.jpg"
+              src={assetPath('images/profile.jpg')}
               alt="Portrait of Mawere Mubala"
               loading="lazy"
             />
@@ -383,7 +386,7 @@ function WalkingStickDetail() {
 
         <img
           className="case-hero-image"
-          src="/images/walking-stick.png"
+          src={assetPath('images/walking-stick.png')}
           alt="Solar-powered smart walking stick prototype"
         />
 
@@ -510,7 +513,7 @@ function ConveyorDetail() {
 
         <img
           className="case-hero-image"
-          src="/images/conveyor.jpg"
+          src={assetPath('images/conveyor.jpg')}
           alt="Two-section colour-coded parcel sorting conveyor prototype"
         />
 
@@ -684,7 +687,7 @@ function ChineseWallDetail() {
 
         <img
           className="case-hero-image"
-          src="/images/chinese-wall.png"
+          src={assetPath('images/chinese-wall.png')}
           alt="Screenshot of the Chinese Wall Loan and Allowance Management System"
         />
 
